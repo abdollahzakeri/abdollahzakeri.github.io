@@ -3,30 +3,30 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Abdollah Zakeri - About</title>
+    <!-- Title -->
+    <title>Abdollah Zakeri - AI and Computer Vision Specialist</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="Abdollah Zakeri, Ph.D. candidate in Computer Science at the University of Houston, specializing in Artificial Intelligence, Machine Learning, and Computer Vision. Explore my projects, publications, and professional journey.">
+
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="Abdollah Zakeri, AI Specialist, Computer Vision, Machine Learning, Artificial Intelligence, Data Scientist, Houston, Ph.D. Candidate, University of Houston, Researcher">
+
+    <!-- Author -->
+    <meta name="author" content="Abdollah Zakeri">
+
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="Abdollah Zakeri - AI and Computer Vision Specialist">
+    <meta property="og:description" content="Discover the professional world of Abdollah Zakeri, an expert in AI, Machine Learning, and Computer Vision. Learn about my academic journey, innovative projects, and research contributions.">
+    <meta property="og:image" content="https://abdollahzakeri.github.io/assets/images/avatar.jpg">
+    <meta property="og:url" content="abdollahzakeri.github.io">
+    <meta name="twitter:card" content="summary_large_image">
 
 	<!-- Meta Data -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="format-detection" content="telephone=no"/>
     <meta name="format-detection" content="address=no"/>
-    <meta name="author" content="ArtTemplate" />
-    <meta name="description" content="Abdollah Zakeri" />
-
-    <!-- Twitter data -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@ArtTemplates">
-    <meta name="twitter:title" content="Abdollah Zakeri">
-    <meta name="twitter:description" content="Abdollah Zakeri">
-    <meta name="twitter:image" content="assets/images/social.jpg">
-
-    <!-- Open Graph data -->
-    <meta property="og:title" content="ArtTemplate" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="your url website" />
-    <meta property="og:image" content="assets/images/social.jpg" />
-    <meta property="og:description" content="Abdollah Zakeri" />
-    <meta property="og:site_name" content="Abdollah Zakeri" />
 
 	<!-- Favicons -->
 	<link rel="apple-touch-icon" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
@@ -35,6 +35,10 @@
 
     <!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="assets/styles/style.css"/>
+	
+	<!-- Mapbox-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
 	
 </head>
 <body class="bg-triangles">
@@ -64,12 +68,7 @@
 						    <h3 class="title title--h3 sidebar__user-name"><span class="weight--500">Abdollah</span> Zakeri</h3>
 							<div class="badge badge--gray">CS Ph.D. Candidate</div>
 							
-							<!-- Social -->
-		                    <div class="social">
-		                        <a class="social__link" href="https://www.facebook.com/"><i class="font-icon icon-facebook"></i></a>
-		                        <a class="social__link" href="https://www.behance.com/"><i class="font-icon icon-twitter"></i></a>
-		                        <a class="social__link" href="https://www.linkedin.com/"><i class="font-icon icon-linkedin2"></i></a>
-		                    </div>
+							
 						</div>
 						
 						<div class="sidebar__info box-inner box-inner--rounded">
@@ -107,168 +106,550 @@
                                 <div class="line"></div>
                             </div>
 						</div>
-						<div class="inner-menu inner-menu-alt">
-							<ul class="nav">
-                                <li class="nav__item"><a class="active" href="index.html">About</a></li>
-								<li class="nav__item"><a href="background.html">Background</a></li>
-								<li class="nav__item"><a href="skills.html">Skills</a></li>
-								<li class="nav__item"><a href="projects.html">Projects</a></li>
-								<li class="nav__item"><a href="publications.html">Publications</a></li>
-								<li class="nav__item"><a href="honors.html">Honors & Awards</a></li>
+						<div class="inner-menu inner-menu-alt js-tabs">
+						    <ul class="nav">
+                                <li class="nav__item"><a class="active" href="#about-tab">About</a></li>
+								<li class="nav__item"><a href="#resume-tab">Resume</a></li>
+                                <li class="nav__item"><a href="#portfolio-tab">Portfolio</a></li>
+                                <li class="nav__item"><a href="#blog-tab">Blog</a></li>
+                                <li class="nav__item"><a href="#contact-tab">Contact</a></li>
                             </ul>
 						</div>
-						
-					    <!-- About -->
-						<div class="pb-0 pb-sm-2">
-		                    <h1 class="title title--h1 title__separate">About Me</h1>
-						    <p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p>
-                            <p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>
-					    </div>
-						
-						<!-- What -->
-						<div class="box-inner pb-0">
-						    <h2 class="title title--h3">What I'm Doing</h2>
-							<div class="row">
-							    <!-- Case Item -->
-							    <div class="col-12 col-lg-6">
-							        <div class="case-item box box__second">
-									    <img class="case-item__icon" src="assets/icons/icon-design.svg" alt="" />
-										<div>
-									        <h3 class="title title--h5">Web Design</h3>
-										    <p class="case-item__caption">The most modern and high-quality design made at a professional level.</p>
-										</div>	
-									</div>
+
+			            <div class="content">
+						    <div id="about-tab" class="tabcontent active">
+					            <!-- About -->
+								<div class="pb-0 pb-sm-2">
+									<h1 class="title title--h1 title__separate">About Me</h1>
+									<p>I am Abdollah Zakeri, currently pursuing my Ph.D. in Computer Science at the University of Houston, where I specialize in Artificial Intelligence, Machine Learning, and Computer Vision. My academic journey began in Iran at the University of Birjand and continued at Shahrood University of Technology, laying a strong foundation for my research. My passion for technology has led me to work on innovative projects, from biometric authentication to AI-driven healthcare solutions. I have developed multi-modal classification systems, advanced object detection models, and conducted pioneering research in pediatric COVID-19 severity detection using Chest X-Ray imaging. As a teacher, I have shared my knowledge in Advanced Programming, Data Structures, and AI, nurturing the next generation of tech enthusiasts. My work has been recognized in various publications, and I am constantly seeking new opportunities to innovate and contribute to the field of AI and Computer Vision.</p>
 								</div>
+						
+						        <!-- What -->
+						        <div class="box-inner pb-0">
+						            <h2 class="title title--h3">What I'm Doing</h2>
+							        <div class="row">
+							            <!-- Case Item -->
+							            <div class="col-12 col-lg-6">
+							                <div class="case-item box box__second">
+									            <img class="case-item__icon" src="assets/icons/icon-design.svg" alt="" />
+										        <div>
+									                <h3 class="title title--h5">Web Design</h3>
+										            <p class="case-item__caption">The most modern and high-quality design made at a professional level.</p>
+										        </div>	
+									        </div>
+								        </div>
 								
-								<!-- Case Item -->
-								<div class="col-12 col-lg-6">
-							        <div class="case-item box box__second">
-									    <img class="case-item__icon" src="assets/icons/icon-dev.svg" alt="" />
-										<div>
-									        <h3 class="title title--h5">Web Development</h3>
-										    <p class="case-item__caption">High-quality and professional development of sites at the professional level.</p>
-										</div>
-									</div>
-								</div>
+								        <!-- Case Item -->
+								        <div class="col-12 col-lg-6">
+							                <div class="case-item box box__second">
+									            <img class="case-item__icon" src="assets/icons/icon-dev.svg" alt="" />
+										        <div>
+									                <h3 class="title title--h5">Web Development</h3>
+										            <p class="case-item__caption">High-quality development of sites at the professional level.</p>
+										        </div>
+									        </div>
+								        </div>
 								
-								<!-- Case Item -->
-								<div class="col-12 col-lg-6">
-								    <div class="case-item box box__second">
-								        <img class="case-item__icon" src="assets/icons/icon-app.svg" alt="" />
-										<div>
-								            <h3 class="title title--h5">Mobile Apps</h3>
-									        <p class="case-item__caption">Professional development of applications for iOS and Android.</p>
-										</div>
-								   </div>
-								</div>
+								        <!-- Case Item -->
+								        <div class="col-12 col-lg-6">
+								            <div class="case-item box box__second">
+								                <img class="case-item__icon" src="assets/icons/icon-app.svg" alt="" />
+										        <div>
+								                    <h3 class="title title--h5">Mobile Apps</h3>
+									                <p class="case-item__caption">Professional development of applications for iOS and Android.</p>
+										        </div>
+								            </div>
+								        </div>
 								
-								<!-- Case Item -->
-								<div class="col-12 col-lg-6">
-								    <div class="case-item box box__second">
-									    <img class="case-item__icon" src="assets/icons/icon-photo.svg" alt="" />
-										<div>
-									        <h3 class="title title--h5">Photography</h3>
-										    <p class="case-item__caption">I make high-quality photos of any category at a professional level.</p>
-										</div>
-									</div>
-								</div>
-							</div>	
-						</div>
+								        <!-- Case Item -->
+								        <div class="col-12 col-lg-6">
+								            <div class="case-item box box__second">
+									            <img class="case-item__icon" src="assets/icons/icon-photo.svg" alt="" />
+										        <div>
+									                <h3 class="title title--h5">Photography</h3>
+										            <p class="case-item__caption">I make high-quality photos of any category at a professional level.</p>
+										        </div>
+									        </div>
+								        </div>
+							        </div>	
+						        </div>
 						
-						<!-- Testimonials -->
-						<div class="box-inner box-inner--white">
-						    <h2 class="title title--h3">Testimonials</h2>
-						
-						    <div class="swiper-container js-carousel-review">
-                                <div class="swiper-wrapper">
-								    <!-- Item review -->
-                                    <div class="swiper-slide review-item">
-										<svg class="avatar avatar--80" viewBox="0 0 84 84">
-                                            <g class="avatar__hexagon">
-                                                <image xlink:href="assets/images/avatar.jpg" height="100%" width="100%" />
-                                            </g>
-                                        </svg>
-									    <h4 class="title title--h5">Daniel Lewis</h4>
-										<p class="review-item__caption">Abdollah was hired to create a corporate identity. We were very pleased with the work done.</p>
-									</div>
+						        <!-- Testimonials -->
+						        <div class="box-inner box-inner--white">
+						            <h2 class="title title--h3">Testimonials</h2>
+						            <div class="swiper-container js-carousel-review">
+                                        <div class="swiper-wrapper">
+								            <!-- Item review -->
+                                            <div class="swiper-slide review-item">
+										        <svg class="avatar avatar--80" viewBox="0 0 84 84">
+                                                    <g class="avatar__hexagon">
+                                                        <image xlink:href="assets/images/avatar.jpg" height="100%" width="100%" />
+                                                    </g>
+                                                </svg>
+									            <h4 class="title title--h5">Daniel Lewis</h4>
+										        <p class="review-item__caption">Abdollah was hired to create a corporate identity. We were very pleased with the work done.</p>
+									        </div>
 									
-									<!-- Item review -->
-                                    <div class="swiper-slide review-item">
-										<svg class="avatar avatar--80" viewBox="0 0 84 84">
-                                            <g class="avatar__hexagon">
-                                                <image xlink:href="assets/images/avatar.jpg" height="100%" width="100%" />
-                                            </g>
-                                        </svg>
-									    <h4 class="title title--h5">Jessica Miller</h4>
-										<p class="review-item__caption">thanks to the skill of Abdollah, we have a design that we can be proud of.</p>
-									</div>
+									        <!-- Item review -->
+                                            <div class="swiper-slide review-item">
+										        <svg class="avatar avatar--80" viewBox="0 0 84 84">
+                                                    <g class="avatar__hexagon">
+                                                        <image xlink:href="assets/images/avatar.jpg" height="100%" width="100%" />
+                                                    </g>
+                                                </svg>
+									            <h4 class="title title--h5">Jessica Miller</h4>
+										        <p class="review-item__caption">thanks to the skill of Abdollah, we have a design that we can be proud of.</p>
+									        </div>
 									
-									<!-- Item review -->
-                                    <div class="swiper-slide review-item">
-										<svg class="avatar avatar--80" viewBox="0 0 84 84">
-                                            <g class="avatar__hexagon">
-                                                <image xlink:href="assets/images/avatar.jpg" height="100%" width="100%" />
-                                            </g>
-                                        </svg>
-									    <h4 class="title title--h5">Tanya Ruiz</h4>
-										<p class="review-item__caption">Abdollah was hired to create a corporate identity. We were very pleased with the work done.</p>
-									</div>
+									        <!-- Item review -->
+                                            <div class="swiper-slide review-item">
+										        <svg class="avatar avatar--80" viewBox="0 0 84 84">
+                                                    <g class="avatar__hexagon">
+                                                        <image xlink:href="assets/images/avatar.jpg" height="100%" width="100%" />
+                                                    </g>
+                                                </svg>
+									            <h4 class="title title--h5">Tanya Ruiz</h4>
+										        <p class="review-item__caption">Abdollah was hired to create a corporate identity. We were very pleased with the work done.</p>
+									        </div>
 									
-									<!-- Item review -->
-                                    <div class="swiper-slide review-item">
-										<svg class="avatar avatar--80" viewBox="0 0 84 84">
-                                            <g class="avatar__hexagon">
-                                                <image xlink:href="assets/images/avatar.jpg" height="100%" width="100%" />
-                                            </g>
-                                        </svg>
-									    <h4 class="title title--h5">Thomas Castro</h4>
-										<p class="review-item__caption">thanks to the skill of Abdollah, we have a design that we can be proud of.</p>
-									</div>
-                                </div>
+									        <!-- Item review -->
+                                            <div class="swiper-slide review-item">
+										        <svg class="avatar avatar--80" viewBox="0 0 84 84">
+                                                    <g class="avatar__hexagon">
+                                                        <image xlink:href="assets/images/avatar.jpg" height="100%" width="100%" />
+                                                    </g>
+                                                </svg>
+									            <h4 class="title title--h5">Thomas Castro</h4>
+										        <p class="review-item__caption">thanks to the skill of Abdollah, we have a design that we can be proud of.</p>
+									        </div>
+                                        </div>
     
-                                <div class="swiper-pagination"></div>
-                            </div>
+                                        <div class="swiper-pagination"></div>
+                                    </div>
+						        </div>
+						
+						        <!-- Clients -->
+						        <div class="box-inner box-inner--rounded">
+						            <h2 class="title title--h3">Clients</h2>
+							
+							        <div class="swiper-container js-carousel-clients">
+                                        <div class="swiper-wrapper">
+								            <!-- Item client -->
+                                            <div class="swiper-slide">
+									            <a href="#"><img src="assets/img/logo-partner.svg" alt="Logo" /></a>
+									        </div>
+									
+								            <!-- Item client -->
+                                            <div class="swiper-slide">
+									            <a href="#"><img src="assets/img/logo-partner.svg" alt="Logo" /></a>
+									        </div>
+
+								            <!-- Item client -->
+                                            <div class="swiper-slide">
+									            <a href="#"><img src="assets/img/logo-partner.svg" alt="Logo" /></a>
+									        </div>
+
+								            <!-- Item client -->
+                                            <div class="swiper-slide">
+									            <a href="#"><img src="assets/img/logo-partner.svg" alt="Logo" /></a>
+									        </div>
+									
+								            <!-- Item client -->
+                                            <div class="swiper-slide">
+									            <a href="#"><img src="assets/img/logo-partner.svg" alt="Logo" /></a>
+									        </div>
+									
+									        <!-- Item client -->
+                                            <div class="swiper-slide">
+									            <a href="#"><img src="assets/img/logo-partner.svg" alt="Logo" /></a>
+									        </div>
+								        </div>
+								
+								        <div class="swiper-pagination"></div>
+							        </div>
+						        </div>
+						    </div>
+							
+							<!-- RESUME -->
+							<div id="resume-tab" class="tabcontent">
+						        <div class="pb-3">
+		                            <h1 class="title title--h1 first-title title__separate">Resume</h1>
+					            </div>
+						
+						        <!-- Experience -->
+						<div class="pb-0">
+							<div class="row">
+								<div class="col-12 col-lg-6">
+									<h2 class="title title--h3"><img class="title-icon" src="assets/icons/icon-education.svg" alt="" /> Education</h2>
+									<div class="timeline">
+										<!-- Item -->
+										<article class="timeline__item">
+											<h5 class="title title--h5 timeline__title">University of Houston</h5>
+											<span class="timeline__period">Ph.D. in Computer Science (current)</span>
+											<p class="timeline__description">Pursuing a Ph.D. in Computer Science with a focus on Artificial Intelligence, Machine Learning, and Computer Vision.</p>
+										</article>
+										
+										<!-- Item -->
+										<article class="timeline__item">
+											<h5 class="title title--h5 timeline__title">Shahrood University of Technology, Iran</h5>
+											<span class="timeline__period">Master of Artificial Intelligence and Robotics</span>
+											<p class="timeline__description">Completed Master's degree with a focus on AI and Robotics, contributing to foundational knowledge in my field.</p>
+										</article>
+										
+										<!-- Item -->
+										<article class="timeline__item">
+											<h5 class="title title--h5 timeline__title">University of Birjand, Iran</h5>
+											<span class="timeline__period">Bachelor of Software Engineering</span>
+											<p class="timeline__description">Earned a Bachelor's degree in Software Engineering, laying the groundwork for my future academic and professional endeavors.</p>
+										</article>
+									</div>    
+								</div>
+								
+								<div class="col-12 col-lg-6">
+									<h2 class="title title--h3"><img class="title-icon" src="assets/icons/icon-experience.svg" alt="" /> Experience</h2>
+									<div class="timeline">
+										<!-- Item -->
+										<article class="timeline__item">
+											<h5 class="title title--h5 timeline__title">Teaching Assistant</h5>
+											<span class="timeline__period">Dates of Experience</span>
+											<p class="timeline__description">Served as a Teaching Assistant for Advanced Programming, Data Structures, Artificial Intelligence, Computer Vision, and Artificial Neural Networks.</p>
+										</article>
+										
+										<!-- Additional experience can be added here if needed -->
+									</div>
+								</div>
+							</div>
 						</div>
 						
-						<!-- Clients -->
+						<!-- Skills -->
 						<div class="box-inner box-inner--rounded">
-						    <h2 class="title title--h3">Clients</h2>
-							
-							<div class="swiper-container js-carousel-clients">
-                                <div class="swiper-wrapper">
-								    <!-- Item client -->
-                                    <div class="swiper-slide">
-									    <a href="#"><img src="assets/img/logo-partner.svg" alt="Logo" /></a>
-									</div>
-									
-								    <!-- Item client -->
-                                    <div class="swiper-slide">
-									    <a href="#"><img src="assets/img/logo-partner.svg" alt="Logo" /></a>
-									</div>
-
-								    <!-- Item client -->
-                                    <div class="swiper-slide">
-									    <a href="#"><img src="assets/img/logo-partner.svg" alt="Logo" /></a>
-									</div>
-
-								    <!-- Item client -->
-                                    <div class="swiper-slide">
-									    <a href="#"><img src="assets/img/logo-partner.svg" alt="Logo" /></a>
-									</div>
-									
-								    <!-- Item client -->
-                                    <div class="swiper-slide">
-									    <a href="#"><img src="assets/img/logo-partner.svg" alt="Logo" /></a>
-									</div>
-									
-									<!-- Item client -->
-                                    <div class="swiper-slide">
-									    <a href="#"><img src="assets/img/logo-partner.svg" alt="Logo" /></a>
+							<div class="row">
+								<div class="col-12 col-lg-6">
+									<h2 class="title title--h3">Technical Skills</h2>
+									<div class="box box__second">
+										<!-- Progress -->
+										<div class="progress">
+											<div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+												<div class="progress-text"><span>Python</span><span>90%</span></div>
+											</div>
+											<div class="progress-text"><span>Python</span></div>
+										</div>
+										
+										<!-- Progress -->
+										<div class="progress">
+											<div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+												<div class="progress-text"><span>C++</span><span>85%</span></div>
+											</div>
+											<div class="progress-text"><span>C++</span></div>
+										</div>
+										
+										<!-- Progress -->
+										<div class="progress">
+											<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+												<div class="progress-text"><span>Machine Learning</span><span>80%</span></div>
+											</div>
+											<div class="progress-text"><span>Machine Learning</span></div>
+										</div>
+										
+										<!-- Progress -->
+										<div class="progress">
+											<div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+												<div class="progress-text"><span>Computer Vision</span><span>75%</span></div>
+											</div>
+											<div class="progress-text"><span>Computer Vision</span></div>
+										</div>
 									</div>
 								</div>
 								
-								<div class="swiper-pagination"></div>
+								<div class="col-12 col-lg-6 mt-4 mt-lg-0">
+									<h2 class="title title--h3">Software Skills</h2>
+									<div class="box box__second">
+										<!-- Progress -->
+										<div class="progress">
+											<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+												<div class="progress-text"><span>TensorFlow</span><span>80%</span></div>
+											</div>
+											<div class="progress-text"><span>TensorFlow</span></div>
+										</div>
+										
+										<!-- Progress -->
+										<div class="progress">
+											<div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+												<div class="progress-text"><span>Keras</span><span>75%</span></div>
+											</div>
+											<div class="progress-text"><span>Keras</span></div>
+										</div>
+										
+										<!-- Progress -->
+										<div class="progress">
+											<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+												<div class="progress-text"><span>PyTorch</span><span>70%</span></div>
+											</div>
+											<div class="progress-text"><span>PyTorch</span></div>
+										</div>
+										
+										<!-- Progress -->
+										<div class="progress">
+											<div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+												<div class="progress-text"><span>OpenCV</span><span>65%</span></div>
+											</div>
+											<div class="progress-text"><span>OpenCV</span></div>
+										</div>
+									</div>
+								</div>
 							</div>
+						</div>		
+							</div>
+							
+							<!-- PORTFOLIO -->
+							<div id="portfolio-tab" class="tabcontent">
+							    <div class="pb-2">
+		                            <h1 class="title title--h1 first-title title__separate">Portfolio</h1>
+					            </div>
+
+						        <!-- Gallery -->
+						        <div class="pb-0">
+							        <!-- Filter -->
+                                    <div class="select">
+			                            <span class="placeholder">Select category</span>
+			                            <ul class="filter">
+			                                <li class="filter__item">Category</li>
+				                            <li class="filter__item active" data-filter="*"><a class="filter__link active" href="#filter">All</a></li>
+				                            <li class="filter__item" data-filter=".category-concept"><a class="filter__link" href="#filter">Concept</a></li>
+				                            <li class="filter__item" data-filter=".category-design"><a class="filter__link" href="#filter">Design</a></li>
+				                            <li class="filter__item" data-filter=".category-life"><a class="filter__link" href="#filter">Life</a></li>
+			                            </ul>
+			                            <input type="hidden" name="changemetoo"/>
+		                            </div>
+
+							        <div class="gallery-grid js-masonry js-filter-container">
+							            <div class="gutter-sizer"></div>
+							            <!-- Item 1 -->
+							            <figure class="gallery-grid__item category-concept">
+								            <div class="gallery-grid__image-wrap">
+                                                <img class="gallery-grid__image cover lazyload" src="assets/img/picture-1.png" data-zoom alt="" />
+									        </div>
+                                            <figcaption class="gallery-grid__caption">
+									            <h4 class="title gallery-grid__title">Half Avocado</h4>
+										        <span class="gallery-grid__category">Concept</span>
+									        </figcaption>
+                                        </figure>
+
+							            <!-- Item 2 -->
+							            <figure class="gallery-grid__item category-concept">
+								            <div class="gallery-grid__image-wrap">
+                                                <img class="gallery-grid__image cover lazyload" src="assets/img/picture-1.png" data-zoom alt="" />
+									        </div>	
+                                            <figcaption class="gallery-grid__caption">
+									            <h4 class="title gallery-grid__title">Pink Flamingo</h4>
+										        <span class="gallery-grid__category">Concept</span>
+									        </figcaption>
+                                        </figure>
+
+							            <!-- Item 3 -->
+							            <figure class="gallery-grid__item category-design">
+								            <div class="gallery-grid__image-wrap">
+                                                <img class="gallery-grid__image cover lazyload" src="assets/img/picture-1.png" data-zoom alt="" />
+									        </div>	
+                                            <figcaption class="gallery-grid__caption">
+									            <h4 class="title gallery-grid__title">Abstract</h4>
+										        <span class="gallery-grid__category">Design</span>
+									        </figcaption>
+                                        </figure>
+
+							            <!-- Item 4 -->
+							            <figure class="gallery-grid__item category-design">
+								            <div class="gallery-grid__image-wrap">
+                                                <img class="gallery-grid__image cover lazyload" src="assets/img/picture-1.png" data-zoom alt="" />
+									        </div>
+									        <figcaption class="gallery-grid__caption">
+									            <h4 class="title gallery-grid__title">Abstract #2</h4>
+										        <span class="gallery-grid__category">Design</span>
+									        </figcaption>
+                                        </figure>
+
+							            <!-- Item 5 -->
+							            <figure class="gallery-grid__item category-design">
+								            <div class="gallery-grid__image-wrap">
+                                                <img class="gallery-grid__image cover lazyload" src="assets/img/picture-1.png" data-zoom alt="" />
+									        </div>
+									        <figcaption class="gallery-grid__caption">
+									            <h4 class="title gallery-grid__title">Abstract #3</h4>
+										        <span class="gallery-grid__category">Design</span>
+									        </figcaption>
+                                        </figure>
+
+							            <!-- Item 6 -->
+							            <figure class="gallery-grid__item category-life">
+								            <div class="gallery-grid__image-wrap">
+                                                <img class="gallery-grid__image cover lazyload" src="assets/img/picture-1.png" data-zoom alt="" />
+									        </div>
+									        <figcaption class="gallery-grid__caption">
+									            <h4 class="title gallery-grid__title">Golden Gate</h4>
+										        <span class="gallery-grid__category">Life</span>
+									        </figcaption>
+                                        </figure>
+
+							            <!-- Item 7 -->
+							            <figure class="gallery-grid__item category-concept">
+								            <div class="gallery-grid__image-wrap">
+                                                <img class="gallery-grid__image cover lazyload" src="assets/img/picture-1.png" data-zoom alt="" />
+									        </div>
+									        <figcaption class="gallery-grid__caption">
+									            <h4 class="title gallery-grid__title">Peach</h4>
+										        <span class="gallery-grid__category">Concept</span>
+									        </figcaption>
+                                        </figure>
+
+							            <!-- Item 8 -->
+							            <figure class="gallery-grid__item category-design">
+								            <div class="gallery-grid__image-wrap">
+                                                <img class="gallery-grid__image cover lazyload" src="assets/img/picture-1.png" data-zoom alt="" />
+									        </div>
+									        <figcaption class="gallery-grid__caption">
+									            <h4 class="title gallery-grid__title">Abstract #4</h4>
+										        <span class="gallery-grid__category">Design</span>
+									        </figcaption>
+                                        </figure>
+
+							            <!-- Item 9 -->
+							            <figure class="gallery-grid__item category-life">
+								            <div class="gallery-grid__image-wrap">
+                                                <img class="gallery-grid__image cover lazyload" src="assets/img/picture-1.png" data-zoom alt="" />
+									        </div>
+									        <figcaption class="gallery-grid__caption">
+									            <h4 class="title gallery-grid__title">Hedgehog</h4>
+										        <span class="gallery-grid__category">Life</span>
+									        </figcaption>
+                                        </figure>
+							        </div>
+						        </div>
+							</div>
+							
+							<!-- BLOG -->
+							<div id="blog-tab" class="tabcontent">
+							    <div class="pb-2">
+		                            <h1 class="title title--h1 first-title title__separate">Blog</h1>
+					            </div>
+
+						        <div class="news-grid pb-0">
+							        <!-- Post -->
+							        <article class="news-item box">
+							            <div class="news-item__image-wrap overlay overlay--45">
+								            <div class="news-item__date">Sep 16, 2019</div>
+									        <a class="news-item__link" href="single-post.html"></a>
+								            <img class="cover lazyload" src="assets/img/picture-1.png" alt="" />
+								        </div>
+								        <div class="news-item__caption">
+								            <h2 class="title title--h4">Design Conferences in 2019</h2>
+									        <p>Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.</p>
+								        </div>
+							        </article>
+
+							        <!-- Post -->
+							        <article class="news-item box">
+							            <div class="news-item__image-wrap overlay overlay--45">
+								            <div class="news-item__date">Sep 15, 2019</div>
+									        <a class="news-item__link" href="single-post.html"></a>
+								            <img class="cover lazyload" src="assets/img/picture-1.png" alt="" />
+								        </div>
+								        <div class="news-item__caption">
+								            <h2 class="title title--h4">Best Fonts Every Designer</h2>
+									        <p>Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.</p>
+								        </div>
+							        </article>
+
+							        <!-- Post -->
+							        <article class="news-item box">
+							            <div class="news-item__image-wrap overlay overlay--45">
+								            <div class="news-item__date">Sep 14, 2019</div>
+									        <a class="news-item__link" href="single-post.html"></a>
+								            <img class="cover lazyload" src="assets/img/picture-1.png" alt="" />
+								        </div>
+								        <div class="news-item__caption">
+								            <h2 class="title title--h4">Design Digest #80</h2>
+									        <p>Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.</p>
+								        </div>
+							        </article>
+							
+							        <!-- Post -->
+							        <article class="news-item box">
+							            <div class="news-item__image-wrap overlay overlay--45">
+								            <div class="news-item__date">Sep 13, 2019</div>
+									        <a class="news-item__link" href="single-post.html"></a>
+								            <img class="cover lazyload" src="assets/img/picture-1.png" alt="" />
+								        </div>
+								        <div class="news-item__caption">
+								            <h2 class="title title--h4">UI Interactions of the week</h2>
+									        <p>Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.</p>
+								        </div>
+							        </article>
+							
+							        <!-- Post -->
+							        <article class="news-item box">
+							            <div class="news-item__image-wrap overlay overlay--45">
+								            <div class="news-item__date">Sep 12, 2019</div>
+									        <a class="news-item__link" href="single-post.html"></a>
+								            <img class="cover lazyload" src="assets/img/picture-1.png" alt="" />
+								        </div>
+								        <div class="news-item__caption">
+								            <h2 class="title title--h4">The Forgotten Art of Spacing</h2>
+									        <p>Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								        </div>
+							        </article>
+							
+							        <!-- Post -->
+							        <article class="news-item box">
+							            <div class="news-item__image-wrap overlay overlay--45">
+								            <div class="news-item__date">Sep 15, 2019</div>
+									        <a class="news-item__link" href="single-post.html"></a>
+								            <img class="cover lazyload" src="assets/img/picture-1.png" alt="" />
+								        </div>
+								        <div class="news-item__caption">
+								            <h2 class="title title--h4">Design Digest #79</h2>
+									        <p>Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.</p>
+								        </div>
+							        </article>
+						        </div>
+							</div>
+							
+							<!-- CONTACT -->
+							<div id="contact-tab" class="tabcontent">
+							    <div class="pb-2">
+		                            <h1 class="title title--h1 first-title title__separate">Contact</h1>
+					            </div>
+								
+                                <div class="map" id="map"></div>
+						        <h2 class="title title--h3">Contact Form</h2>
+							
+						        <form id="contact-form" class="contact-form" data-toggle="validator">
+                                    <div class="row">
+				                        <div class="form-group col-12 col-md-6">
+									        <i class="font-icon icon-user"></i>
+                                            <input type="text" class="input input__icon form-control" id="nameContact" name="nameContact" placeholder="Full name" required="required" autocomplete="on" oninvalid="setCustomValidity('Fill in the field')" onkeyup="setCustomValidity('')">
+								            <div class="help-block with-errors"></div>
+				                        </div>
+				                        <div class="form-group col-12 col-md-6">
+									        <i class="font-icon icon-envelope"></i>
+                                            <input type="email" class="input input__icon form-control" id="emailContact" name="emailContact" placeholder="Email address" required="required" autocomplete="on" oninvalid="setCustomValidity('Email is incorrect')" onkeyup="setCustomValidity('')">
+								            <div class="help-block with-errors"></div>
+				                        </div>
+				                        <div class="form-group col-12 col-md-12">
+                                            <textarea class="textarea form-control" id="messageContact" name="messageContact" placeholder="Your Message"  rows="4" required="required" oninvalid="setCustomValidity('Fill in the field')" onkeyup="setCustomValidity('')"></textarea>
+								            <div class="help-block with-errors"></div>
+				                        </div>
+						            </div>
+							        <div class="row">
+				                        <div class="col-12 col-md-6 order-2 order-md-1 text-center text-md-left">
+					                        <div id="validator-contact" class="hidden"></div>
+				                        </div>
+				                        <div class="col-12 col-md-6 order-1 order-md-2 text-right">
+					                        <button type="submit" class="btn"><i class="font-icon icon-send"></i> Send Message</button>
+				                        </div>
+			                        </div>
+		                        </form>
+							</div>
+							
 						</div>
 					</div>
 					
@@ -295,6 +676,8 @@
 	<script src="assets/js/jquery-3.4.1.min.js"></script>
 	<script src="assets/js/plugins.min.js"></script>
     <script src="assets/js/common.js"></script>
-
+    
+	<!-- Mapbox init -->
+	<script src="assets/js/mapbox.init.js"></script>
 </body>
 </html>
