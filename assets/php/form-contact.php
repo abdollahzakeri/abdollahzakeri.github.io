@@ -55,7 +55,7 @@ $body = "
 <html>
 <body>
     <div style='background:#f9f9f9; padding:1px;'>
-        <div style='text-align: center; margin-top: 20px;'><h2>vCard</h2></div>
+        <div style='text-align: center; margin-top: 20px;'><h2>Abdollah Zakeri</h2></div>
         <div style='background:#fff; width:600px; margin:20px auto; padding:35px 60px 25px; box-sizing:border-box; border-radius:4px; box-shadow: 0 15px 40px rgba(141, 153, 167, 0.05);'>
             <div style='color:#8d99a7;'>Name:</div>
             <div style='margin-bottom:10px;'>$name</div>
@@ -64,7 +64,7 @@ $body = "
             <div style='color:#8d99a7;padding-top:13px;border-top:1px solid #f3f5f6;'>Comment:</div>
             <div style='margin-bottom:10px;'>$message</div>
         </div>
-        <div style='color:#8d99a7; font-size:12px; text-align:center; padding-bottom:20px;'>Copyright $current_year vCard</div>
+        <div style='color:#8d99a7; font-size:12px; text-align:center; padding-bottom:20px;'>Copyright $current_year Abdollah Zakeri</div>
     </div>
 </body>
 </html>

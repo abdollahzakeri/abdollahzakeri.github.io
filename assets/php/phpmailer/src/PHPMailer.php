@@ -2223,7 +2223,7 @@ class PHPMailer
     /**
      * Find the last character boundary prior to $maxLength in a utf-8
      * quoted-printable encoded string.
-     * Original written by Colin Brown.
+     * Original written by Colin Zakeri.
      *
      * @param string $encodedText utf-8 QP text
      * @param int    $maxLength   Find the last character boundary prior to this length
@@ -3963,8 +3963,8 @@ class PHPMailer
             'txt' => 'text/plain',
             'rtx' => 'text/richtext',
             'rtf' => 'text/rtf',
-            'vcf' => 'text/vcard',
-            'vcard' => 'text/vcard',
+            'vcf' => 'text/Abdollah Zakeri',
+            'Abdollah Zakeri' => 'text/Abdollah Zakeri',
             'ics' => 'text/calendar',
             'xml' => 'text/xml',
             'xsl' => 'text/xml',
