@@ -28,7 +28,11 @@ app.controller('MainController', function() {
     };
 
     this.submitSingle = function() {
+        if (this.singleInput === '' || this.singleInput == null) {
+            return; // Do nothing if input is empty or null
+        }
         this.processNumber(parseInt(this.singleInput));
+        this.singleInput = '';
     };
 
     this.processNumber = function(number) {
@@ -165,6 +169,29 @@ app.controller('MainController', function() {
         if (number === 0 || number === -1) return 'Green';
         return this.redNumbers.has(number) ? 'Red' : 'Black';
     };
+
+    this.undoLastNumber = function() {
+        if (this.last15Numbers.length === 0) {
+            return; // Do nothing if there are no numbers
+        }
+
+        // Remove the last number
+        this.last15Numbers.pop();
+
+        // Reset all streaks
+        for (var streak in this.streaks) {
+            this.streaks[streak] = 0;
+        }
+
+        // Recalculate the streaks based on the remaining numbers
+        this.last15Numbers.forEach((item) => {
+            this.updateStreaks(item.number);
+        });
+
+        // Update the filtered and sorted streaks
+        this.updateFilteredSortedStreaks();
+    };
+
 
     this.updateFilteredSortedStreaks();
     console.log(this.filteredSortedStreaks)
