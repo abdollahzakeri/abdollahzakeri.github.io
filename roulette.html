@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="rouletteApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Roulette Streak Counter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+          .number-cell {
+              width: 30px;
+              height: 30px;
+              text-align: center;
+              vertical-align: middle;
+              border: 1px solid #000;
+          }
+          .Red { background-color: red; color: white; }
+          .Black { background-color: black; color: white; }
+          .Green { background-color: green; color: white; }
+      </style>
+</head>
+<body ng-controller="MainController as ctrl">
+    <h1>Roulette Streak Counter</h1>
+    <div>
+        <h2>Batch Input</h2>
+        <input type="text" ng-model="ctrl.batchInput" placeholder="Enter numbers separated by commas">
+        <button ng-click="ctrl.submitBatch()">Submit Batch</button>
+    </div>
+    <div>
+        <h2>Single Input</h2>
+        <input type="number" ng-model="ctrl.singleInput" placeholder="Enter a number">
+        <button ng-click="ctrl.submitSingle()">Submit Number</button>
+    </div>
+    <div>
+        <h2>Streaks and Last 15 Numbers</h2>
+        <div>
+            <h3>Streaks:</h3>
+            <div ng-repeat="streak in ctrl.filteredSortedStreaks">
+                No {{ streak.name }}: {{ streak.length }}
+            </div>
+        </div>
+        <div>
+            <h2>Last 15 Numbers:</h2>
+            <table border="1">
+                <tr>
+                    <td class="number-cell" ng-repeat="number in ctrl.last15Numbers.slice().reverse()" ng-class="number.color">
+                        {{ number.number }}
+                    </td>
+                </tr>
+            </table>
+      </div>
+    </div>
+</body>
+</html>
