@@ -1,0 +1,38 @@
+{
+  "files": [
+    "data/custom-dataset-map/custom-dataset-map.js",
+    "data/dataloader-basic/dataloader-basic.js",
+    "data/collate-pad-seq/collate-pad-seq.js",
+    "training/basic-training-loop/basic-training-loop.js",
+    "training/amp-autocast-gradscaler/amp-autocast-gradscaler.js",
+    "training/grad-accumulation/grad-accumulation.js",
+    "evaluation/eval-loop/eval-loop.js",
+    "evaluation/confusion-matrix/confusion-matrix.js",
+    "tensors-math/logsumexp-trick/logsumexp-trick.js",
+    "layers-modules/linear-from-scratch/linear-from-scratch.js",
+    "layers-modules/layernorm/layernorm.js",
+    "layers-modules/residual-block/residual-block.js",
+    "initialization/xavier-init/xavier-init.js",
+    "optimization/param-groups/param-groups.js",
+    "optimization/adamw/adamw.js",
+    "regularization/label-smoothing/label-smoothing.js",
+    "autograd/custom-function/custom-function.js",
+    "serialization/torchscript-trace/torchscript-trace.js",
+    "nlp/lstm-classifier/lstm-classifier.js",
+    "nlp/pack-padded/pack-padded.js",
+    "vision/cnn-classifier/cnn-classifier.js",
+    "vision/transfer-resnet18/transfer-resnet18.js",
+    "transformer/sdpa/sdpa.js",
+    "transformer/multi-head-attn/multi-head-attn.js",
+    "transformer/transformer-encoder-block/transformer-encoder-block.js",
+    "transformer/full-transformer/full-transformer.js",
+    "clip/clip-dual-encoder/clip-dual-encoder.js",
+    "clip/infonce-contrastive/infonce-contrastive.js",
+    "generative/vae/vae.js",
+    "utilities/average-meter/average-meter.js",
+    "devices-memory/to-device-helper/to-device-helper.js",
+    "losses/focal-loss/focal-loss.js"
+  ]
+}
+
+

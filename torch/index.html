@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PyTorch Interview Cookbook</title>
+    <meta name="description" content="100+ minimal PyTorch interview code examples, organized by topic. Standalone, mobile-friendly web app." />
+
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo">🔥</div>
+        <div class="titles">
+          <h1>PyTorch Interview Cookbook</h1>
+          <p>Minimal, clean, well-documented code patterns for research interviews</p>
+        </div>
+      </div>
+      <div class="actions">
+        <input id="search" class="search" type="search" placeholder="Search keywords or topics..." aria-label="Search" />
+        <button id="backBtn" class="btn secondary" title="Back" aria-label="Back" hidden>← Back</button>
+      </div>
+    </header>
+
+    <main id="app" class="app-main">
+      <!-- Home: Top-level categories -->
+      <section id="view-home" class="view view-active" aria-labelledby="home-title">
+        <h2 id="home-title" class="view-title">Browse by Category</h2>
+        <div id="home-grid" class="grid"></div>
+      </section>
+
+      <!-- Category: Second-level topics -->
+      <section id="view-category" class="view" aria-labelledby="category-title">
+        <h2 id="category-title" class="view-title"></h2>
+        <div id="category-grid" class="grid"></div>
+      </section>
+
+      <!-- Example: Code viewer -->
+      <section id="view-example" class="view" aria-labelledby="example-title">
+        <div class="example-header">
+          <h2 id="example-title" class="view-title"></h2>
+          <div class="example-meta" id="example-meta"></div>
+          <div class="example-actions">
+            <button id="copyBtn" class="btn" aria-label="Copy code">Copy Code</button>
+          </div>
+        </div>
+        <p id="example-desc" class="example-desc"></p>
+        <pre class="code-container"><code id="code-block" class="language-python"></code></pre>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <div>
+        <span>Made for rapid interview prep • Pure PyTorch • No build tools</span>
+      </div>
+      <div class="links">
+        <a href="https://pytorch.org/" target="_blank" rel="noopener">PyTorch Docs</a>
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </footer>
+
+    <!-- Scripts at the end for faster first paint -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="loader.js"></script>
+    <script src="app.js"></script>
+  </body>
+  </html>
+
+
