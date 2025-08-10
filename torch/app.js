@@ -46,8 +46,10 @@
   }
 
   function renderCategory(categoryId, filter = '') {
+    const cookbook = window.PYTORCH_COOKBOOK;
+    if (!cookbook || !Array.isArray(cookbook.categories)) { setView('home'); return; }
     setView('category');
-    const cat = window.PYTORCH_COOKBOOK.categories.find(c => c.id === categoryId);
+    const cat = cookbook.categories.find(c => c.id === categoryId);
     if (!cat) { renderHome(); return; }
     els.categoryTitle.textContent = cat.name;
     const query = filter.trim().toLowerCase();
@@ -65,17 +67,17 @@
   }
 
   function renderExample(categoryId, topicId) {
+    const cookbook = window.PYTORCH_COOKBOOK;
+    if (!cookbook || !Array.isArray(cookbook.categories)) { setView('home'); return; }
     setView('example');
-    const cat = window.PYTORCH_COOKBOOK.categories.find(c => c.id === categoryId);
+    const cat = cookbook.categories.find(c => c.id === categoryId);
     const topic = cat?.topics.find(t => t.id === topicId);
     if (!cat || !topic) { renderHome(); return; }
     els.exampleTitle.textContent = `${cat.name} · ${topic.name}`;
     els.exampleMeta.textContent = topic.meta ?? '';
     els.exampleDesc.textContent = topic.description ?? '';
     els.codeBlock.textContent = topic.code?.trim() ?? '';
-    if (window.Prism) {
-      Prism.highlightElement(els.codeBlock);
-    }
+    // Avoid runtime highlighters that may rely on eval under strict CSP
     els.copyBtn.onclick = () => {
       navigator.clipboard.writeText(topic.code ?? '').then(() => {
         els.copyBtn.textContent = 'Copied!';
@@ -104,9 +106,11 @@
 
   function handleRoute() {
     const st = parseLocation();
+    const ready = window.PYTORCH_COOKBOOK && Array.isArray(window.PYTORCH_COOKBOOK.categories) && window.PYTORCH_COOKBOOK.categories.length >= 0;
+    if (!ready) return; // wait for examples-ready
     if (st.v === 'home') renderHome(els.search.value);
-    if (st.v === 'category') renderCategory(st.categoryId, els.search.value);
-    if (st.v === 'example') renderExample(st.categoryId, st.topicId);
+    else if (st.v === 'category') renderCategory(st.categoryId, els.search.value);
+    else if (st.v === 'example') renderExample(st.categoryId, st.topicId);
   }
 
   els.backBtn.addEventListener('click', () => {
@@ -124,9 +128,9 @@
   window.addEventListener('hashchange', () => handleRoute());
   document.addEventListener('examples-ready', () => handleRoute());
 
-  // Initial render (after data.js loads)
+  // Initial render (after examples load)
   document.addEventListener('DOMContentLoaded', () => {
-    handleRoute();
+    // Defer to examples-ready to avoid race conditions
   });
 })();
 

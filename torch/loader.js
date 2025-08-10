@@ -6,13 +6,10 @@
   const root = 'examples';
 
   async function loadManifest() {
+    // Always rely on manifest.js (preloaded in index.html) for GitHub Pages CSP compatibility
+    if (window.EXAMPLES_MANIFEST) return window.EXAMPLES_MANIFEST;
+    // Fallback: attempt to load it if not included
     try {
-      const res = await fetch(`${root}/manifest.json`, { cache: 'no-cache' });
-      if (!res.ok) throw new Error('manifest fetch error');
-      return await res.json();
-    } catch (e) {
-      console.warn('manifest.json fetch failed; trying manifest.js fallback…', e);
-      // Try to load a JS manifest that sets window.EXAMPLES_MANIFEST
       await new Promise((resolve, reject) => {
         const s = document.createElement('script');
         s.src = `${root}/manifest.js`;
@@ -20,13 +17,10 @@
         s.onload = resolve;
         s.onerror = reject;
         document.head.appendChild(s);
-      }).catch((err) => {
-        console.warn('manifest.js load failed; falling back to embedded data.js if present.', err);
       });
-      if (window.EXAMPLES_MANIFEST && window.EXAMPLES_MANIFEST.files) {
-        return window.EXAMPLES_MANIFEST;
-      }
-      // If legacy data.js exists, keep using it.
+      return window.EXAMPLES_MANIFEST || null;
+    } catch (e) {
+      console.warn('manifest.js load failed; falling back to embedded data.js if present.', e);
       if (window.PYTORCH_COOKBOOK) {
         document.dispatchEvent(new Event('examples-ready'));
       }
@@ -68,37 +62,56 @@
     });
   };
 
+  // CSP-safe parser for our example JS files. Avoids eval and Function.
+  function parseExampleText(text) {
+    try {
+      const catMatch = text.match(/window\.registerExample\(\s*'([^']+)'/);
+      if (!catMatch) return null;
+      const categoryId = catMatch[1];
+      const get = (key) => {
+        const m = text.match(new RegExp(key + ":\\s*'([^']*)'"));
+        return m ? m[1] : '';
+      };
+      const topicId = get('topicId');
+      const topicName = get('topicName');
+      const categoryName = get('categoryName');
+      const categorySummary = get('categorySummary');
+      const id = get('id');
+      const name = get('name');
+      const meta = get('meta');
+      const description = get('description');
+      // tags: ['a','b']
+      const tagsMatch = text.match(/tags:\s*\[([^\]]*)\]/);
+      const tags = tagsMatch ? tagsMatch[1].split(',').map(s => s.trim().replace(/^'|'$/g,'')).filter(Boolean) : [];
+      // code: `...`
+      const codeMatch = text.match(/code:\s*`([\s\S]*?)`/);
+      const code = codeMatch ? codeMatch[1] : '';
+      return {
+        categoryId,
+        topicInfo: { categoryName, categorySummary, topicId, topicName },
+        example: { id: id || topicId, name: name || topicName, tags, meta, description, code },
+      };
+    } catch (e) {
+      return null;
+    }
+  }
+
   (async function init(){
     const manifest = await loadManifest();
     if (!manifest) return; // fallback handled
-    // Preferred: JSON entries (CSP-safe)
-    if (Array.isArray(manifest.entries)) {
-      for (const e of manifest.entries) {
-        window.registerExample(e.categoryId, {
-          categoryName: e.categoryName,
-          categorySummary: e.categorySummary,
-          topicId: e.topicId,
-          topicName: e.topicName,
-        }, e.example);
-      }
-      document.dispatchEvent(new Event('examples-ready'));
-      return;
-    }
-    // Fallback: load JS files if allowed by CSP
-    for (const entry of manifest.files || []) {
+    // Load example JS files via script tags (CSP-friendly, supports file:// and GitHub Pages)
+    const fileList = manifest.files || [];
+    let loadedCount = 0;
+    await Promise.all(fileList.map((entry) => new Promise((resolve) => {
       const path = `${root}/${entry}`;
-      try {
-        await new Promise((resolve, reject) => {
-          const s = document.createElement('script');
-          s.src = path; s.async = false;
-          s.onload = resolve; s.onerror = reject;
-          document.head.appendChild(s);
-        });
-      } catch (e) {
-        console.error('Failed to load example', path, e);
-      }
-    }
-    document.dispatchEvent(new Event('examples-ready'));
+      const s = document.createElement('script');
+      s.src = path; s.async = false;
+      s.onload = () => { loadedCount += 1; resolve(); };
+      s.onerror = () => { console.error('Failed to load example', path); resolve(); };
+      document.head.appendChild(s);
+    })));
+    if (loadedCount > 0) document.dispatchEvent(new Event('examples-ready'));
+    else document.dispatchEvent(new Event('examples-ready'));
   })();
 })();
 
