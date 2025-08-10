@@ -6,7 +6,8 @@
     <title>PyTorch Interview Cookbook</title>
     <meta name="description" content="100+ minimal PyTorch interview code examples, organized by topic. Standalone, mobile-friendly web app." />
 
-    <!-- Syntax highlighting disabled for CSP compatibility; code blocks are styled via CSS -->
+    <!-- Prism.js for syntax highlighting (safe on GitHub Pages over https) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" />
   </head>
   <body>
@@ -62,7 +63,8 @@
     </footer>
 
     <!-- Scripts at the end for faster first paint -->
-    <!-- No external highlighter to avoid CSP 'unsafe-eval' issues -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
     <script src="examples/manifest.js"></script>
     <script src="loader.js"></script>
     <script src="app.js"></script>

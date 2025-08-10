@@ -77,7 +77,9 @@
     els.exampleMeta.textContent = topic.meta ?? '';
     els.exampleDesc.textContent = topic.description ?? '';
     els.codeBlock.textContent = topic.code?.trim() ?? '';
-    // Avoid runtime highlighters that may rely on eval under strict CSP
+    if (window.Prism && typeof Prism.highlightElement === 'function') {
+      Prism.highlightElement(els.codeBlock);
+    }
     els.copyBtn.onclick = () => {
       navigator.clipboard.writeText(topic.code ?? '').then(() => {
         els.copyBtn.textContent = 'Copied!';
