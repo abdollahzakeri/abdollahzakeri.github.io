@@ -1,37 +1,7 @@
 {
-  "files": [
-    "data/custom-dataset-map/custom-dataset-map.js",
-    "data/dataloader-basic/dataloader-basic.js",
-    "data/collate-pad-seq/collate-pad-seq.js",
-    "training/basic-training-loop/basic-training-loop.js",
-    "training/amp-autocast-gradscaler/amp-autocast-gradscaler.js",
-    "training/grad-accumulation/grad-accumulation.js",
-    "evaluation/eval-loop/eval-loop.js",
-    "evaluation/confusion-matrix/confusion-matrix.js",
-    "tensors-math/logsumexp-trick/logsumexp-trick.js",
-    "layers-modules/linear-from-scratch/linear-from-scratch.js",
-    "layers-modules/layernorm/layernorm.js",
-    "layers-modules/residual-block/residual-block.js",
-    "initialization/xavier-init/xavier-init.js",
-    "optimization/param-groups/param-groups.js",
-    "optimization/adamw/adamw.js",
-    "regularization/label-smoothing/label-smoothing.js",
-    "autograd/custom-function/custom-function.js",
-    "serialization/torchscript-trace/torchscript-trace.js",
-    "nlp/lstm-classifier/lstm-classifier.js",
-    "nlp/pack-padded/pack-padded.js",
-    "vision/cnn-classifier/cnn-classifier.js",
-    "vision/transfer-resnet18/transfer-resnet18.js",
-    "transformer/sdpa/sdpa.js",
-    "transformer/multi-head-attn/multi-head-attn.js",
-    "transformer/transformer-encoder-block/transformer-encoder-block.js",
-    "transformer/full-transformer/full-transformer.js",
-    "clip/clip-dual-encoder/clip-dual-encoder.js",
-    "clip/infonce-contrastive/infonce-contrastive.js",
-    "generative/vae/vae.js",
-    "utilities/average-meter/average-meter.js",
-    "devices-memory/to-device-helper/to-device-helper.js",
-    "losses/focal-loss/focal-loss.js"
+  "entries": [
+    {"categoryId":"data","categoryName":"Data","categorySummary":"Datasets, DataLoaders, samplers, collation, transforms","topicId":"custom-dataset-map","topicName":"Custom Dataset (map-style)","example":{"id":"custom-dataset-map","name":"Custom Dataset (map-style)","tags":["dataset","map-style","data"],"meta":"Complete nn.Module usage not required here; focus is Dataset API","description":"A complete map-style Dataset returning tensors, plus a quick usage demo with DataLoader.","code":"import torch\nfrom torch.utils.data import Dataset, DataLoader\n\nclass ToyMapDataset(Dataset):\n    \"\"\"Map-style dataset returning (x, y) pairs as tensors.\"\"\"\n    def __init__(self, data, targets):\n        self.data = torch.as_tensor(data, dtype=torch.float32)\n        self.targets = torch.as_tensor(targets, dtype=torch.long)\n\n    def __len__(self):\n        return self.data.size(0)\n\n    def __getitem__(self, idx):\n        x = self.data[idx]\n        y = self.targets[idx]\n        return x, y\n\n# End-to-end usage\nX = torch.randn(100, 10)\ny = torch.randint(0, 3, (100,))\nds = ToyMapDataset(X, y)\nloader = DataLoader(ds, batch_size=16, shuffle=True)\nfor xb, yb in loader:\n    print(xb.shape, yb.shape)\n    break"}},
+    {"categoryId":"training","categoryName":"Training","categorySummary":"Loops, AMP, clipping, accumulation, checkpoints","topicId":"basic-training-loop","topicName":"Basic training loop","example":{"id":"basic-training-loop","name":"Basic training loop","tags":["loop","optimizer","loss"],"meta":"Complete end-to-end mini training with nn.Module","description":"A full supervised training example with a small nn.Module, optimizer, dataloader, and logging.","code":"import torch\nimport torch.nn as nn\nimport torch.optim as optim\nfrom torch.utils.data import DataLoader, TensorDataset\n\nclass MLP(nn.Module):\n    def __init__(self, in_dim=10, hidden=32, out_dim=3):\n        super().__init__()\n        self.net = nn.Sequential(\n            nn.Linear(in_dim, hidden),\n            nn.ReLU(),\n            nn.Linear(hidden, out_dim),\n        )\n    def forward(self, x):\n        return self.net(x)\n\ndef train_one_epoch(model, loader, optimizer, criterion):\n    model.train()\n    total_loss = 0.0\n    for xb, yb in loader:\n        optimizer.zero_grad(set_to_none=True)\n        logits = model(xb)\n        loss = criterion(logits, yb)\n        loss.backward()\n        optimizer.step()\n        total_loss += loss.item() * xb.size(0)\n    return total_loss / len(loader.dataset)\n\ndef evaluate(model, loader, criterion):\n    model.eval()\n    total_loss, correct, total = 0.0, 0, 0\n    with torch.no_grad():\n        for xb, yb in loader:\n            logits = model(xb)\n            loss = criterion(logits, yb)\n            total_loss += loss.item() * xb.size(0)\n            pred = logits.argmax(dim=-1)\n            correct += (pred == yb).sum().item()\n            total += yb.numel()\n    return total_loss / len(loader.dataset), correct / max(1, total)\n\n# Synthetic dataset\nX_train = torch.randn(512, 10)\ny_train = torch.randint(0, 3, (512,))\nX_val   = torch.randn(128, 10)\ny_val   = torch.randint(0, 3, (128,))\ntrain_loader = DataLoader(TensorDataset(X_train, y_train), batch_size=64, shuffle=True)\nval_loader   = DataLoader(TensorDataset(X_val, y_val), batch_size=64)\n\nmodel = MLP()\ncriterion = nn.CrossEntropyLoss()\noptimizer = optim.AdamW(model.parameters(), lr=1e-3)\n\nfor epoch in range(5):\n    tr_loss = train_one_epoch(model, train_loader, optimizer, criterion)\n    va_loss, va_acc = evaluate(model, val_loader, criterion)\n    print(f\"epoch={epoch} train_loss={tr_loss:.4f} val_loss={va_loss:.4f} val_acc={va_acc:.3f}\")"}}
   ]
 }
 

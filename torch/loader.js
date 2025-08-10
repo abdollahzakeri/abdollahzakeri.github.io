@@ -71,8 +71,21 @@
   (async function init(){
     const manifest = await loadManifest();
     if (!manifest) return; // fallback handled
-    // Load all example scripts sequentially to ensure registration order
-    for (const entry of manifest.files) {
+    // Preferred: JSON entries (CSP-safe)
+    if (Array.isArray(manifest.entries)) {
+      for (const e of manifest.entries) {
+        window.registerExample(e.categoryId, {
+          categoryName: e.categoryName,
+          categorySummary: e.categorySummary,
+          topicId: e.topicId,
+          topicName: e.topicName,
+        }, e.example);
+      }
+      document.dispatchEvent(new Event('examples-ready'));
+      return;
+    }
+    // Fallback: load JS files if allowed by CSP
+    for (const entry of manifest.files || []) {
       const path = `${root}/${entry}`;
       try {
         await new Promise((resolve, reject) => {
