@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day 3 — Cardio + Mobility/Core</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="container viewer">
+      <div id="app"></div>
+    </main>
+    <script src="viewer.js"></script>
+    <script>
+      const moves = [
+        { title: 'Zone 2 (35–45 min)', meta: 'Incline walk / bike / elliptical; conversational pace',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/0/0a/Stationary_bike.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/5/57/Elliptical_trainer.jpg'
+          ] }
+        },
+        { title: 'Hip flexor stretch — 60s/side', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/5/5a/Hip_flexor_stretch.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/1/1b/Lunge_stretch.jpg'
+          ] }
+        },
+        { title: 'Hamstring stretch — 60s/side', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/8/8d/Hamstring_stretch_sitting.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/3/34/Standing_hamstring_stretch.jpg'
+          ] }
+        },
+        { title: 'Thoracic rotations — 8/side', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/0/0d/Thoracic-rotation-1.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/4/4f/Thoracic-rotation-2.jpg'
+          ] }
+        },
+        { title: 'Side plank — 2×30–45s/side', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/6/6d/Plank_side_1.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/7/7d/Plank_side_2.jpg'
+          ] }
+        }
+      ];
+      createViewer({ dayTitle: 'Day 3 — Cardio + Mobility/Core', moves, containerId: 'app' });
+    </script>
+  </body>
+  </html>

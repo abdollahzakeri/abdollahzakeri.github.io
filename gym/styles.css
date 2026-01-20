@@ -1,0 +1,27 @@
+:root { --bg:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --accent:#22c55e; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif; background:#0b1220; color:var(--text); }
+.container { max-width: 960px; margin: 0 auto; padding: 24px; }
+h1 { margin: 0 0 8px 0; font-size: 28px; }
+.subtitle { margin: 0 0 24px 0; color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
+.card { display:block; padding:16px; border-radius:12px; background: linear-gradient(180deg, #111827, #0d141f); color:var(--text); text-decoration:none; border:1px solid #1f2937; transition: transform .15s ease, border-color .15s ease; }
+.card:hover { transform: translateY(-2px); border-color:#334155; }
+.card h2 { margin: 0 0 6px 0; font-size: 20px; color:#ffffff; }
+.card p { margin: 0; color: var(--muted); }
+.note { margin-top: 20px; color: var(--muted); }
+
+/* Viewer */
+.viewer { max-width: 800px; margin: 0 auto; }
+.viewer-header { display:flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+.viewer-header h1 { font-size: 24px; margin: 0; }
+.viewer-sub { color: var(--muted); margin: 0 0 16px 0; }
+.media-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; background:#0a0f18; border:1px solid #1f2937; border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.media-wrap img, .media-wrap video { height: 100%; object-fit: cover; display:block; }
+.controls { display:flex; gap:12px; margin-top: 12px; }
+.controls button { background:#1f2937; color:var(--text); border:1px solid #2b3746; border-radius:8px; padding:10px 14px; cursor:pointer; }
+.controls button:hover { border-color:#3b4757; }
+.move-title { margin: 10px 0 6px 0; font-weight: 600; }
+.move-meta { margin: 0 0 14px 0; color: var(--muted); }
+.back { display:inline-block; margin-bottom:12px; color: var(--accent); text-decoration:none; }
+.legend { margin-top:10px; color: var(--muted); font-size: 14px; }

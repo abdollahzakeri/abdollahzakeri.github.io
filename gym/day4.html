@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day 4 — Upper B + Zone 2</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="container viewer">
+      <div id="app"></div>
+    </main>
+    <script src="viewer.js"></script>
+    <script>
+      const moves = [
+        { title: 'Warm-up (5–8 min)', meta: 'Easy + light sets',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/3/3d/Treadmill-walk.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/0/0a/Stationary_bike.jpg'
+          ] }
+        },
+        { title: 'Machine chest press or push-ups — 3×10–12', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/8/8d/Push-up-1.png',
+            'https://upload.wikimedia.org/wikipedia/commons/1/19/Push-up-2.png'
+          ] }
+        },
+        { title: 'One-arm cable row — 3×10–12/side', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/7/7d/One-arm-row-1.png',
+            'https://upload.wikimedia.org/wikipedia/commons/0/06/One-arm-row-2.png'
+          ] }
+        },
+        { title: 'Seated DB shoulder press — 2×8–12', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/2/2e/Seated-dumbbell-press-1.png',
+            'https://upload.wikimedia.org/wikipedia/commons/7/77/Seated-dumbbell-press-2.png'
+          ] }
+        },
+        { title: 'Assisted pull-ups or pulldown — 3×8–12', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/9/9d/Pull-up-1.png',
+            'https://upload.wikimedia.org/wikipedia/commons/0/0b/Pull-up-2.png'
+          ] }
+        },
+        { title: 'Face pulls — 3×12–15', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/a/a6/Face-pull-1.png',
+            'https://upload.wikimedia.org/wikipedia/commons/8/8e/Face-pull-2.png'
+          ] }
+        },
+        { title: 'Overhead triceps cable — 2×12–15', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/d/dc/Overhead-triceps-1.png',
+            'https://upload.wikimedia.org/wikipedia/commons/6/6a/Overhead-triceps-2.png'
+          ] }
+        },
+        { title: 'Hammer curls — 2×12–15', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/4/4f/Dumbbell-biceps-curl-1.png',
+            'https://upload.wikimedia.org/wikipedia/commons/7/76/Dumbbell-biceps-curl-2.png'
+          ] }
+        },
+        { title: 'Zone 2 — 15 min', meta: 'Easy pace',
+          media: { type: 'slideshow', images: [
+            'https://upload.wikimedia.org/wikipedia/commons/3/3d/Treadmill-walk.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/0/0a/Stationary_bike.jpg'
+          ] }
+        }
+      ];
+      createViewer({ dayTitle: 'Day 4 — Upper B + Zone 2', moves, containerId: 'app' });
+    </script>
+  </body>
+  </html>

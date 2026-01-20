@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day 1 — Upper A + Zone 2</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="container viewer">
+      <div id="app"></div>
+    </main>
+    <script src="viewer.js"></script>
+    <script>
+      const moves = [
+        { title: 'Warm-up (8 min)', meta: 'Easy bike/treadmill + shoulder circles + band pull-aparts',
+          media: { type: 'slideshow', images: [
+            'https://media1.tenor.com/m/_ihDGcOIVd8AAAAd/running-on-a-treadmill-anthony-alfredo.gif',
+          ] }
+        },
+        { title: 'Dumbbell bench press — 3×8–12', meta: 'RIR 2–3; steady tempo.',
+          media: { type: 'slideshow', images: [
+            'https://images.squarespace-cdn.com/content/v1/54f9e84de4b0d13f30bba4cb/1526594718945-BPX4A14ZPB597YS7IABB/DSC_6330.mov.gif'
+          ] }
+        },
+        { title: 'Chest-supported row — 3×10–12', meta: 'Machine or DB.',
+          media: { type: 'slideshow', images: [
+            'https://barbend.com/wp-content/uploads/2021/04/chest-supported-row-barbend-movement-gif-masters-1-1.gif'
+          ] }
+        },
+        { title: 'Incline DB press — 2×10–12', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/03/Dumbbell-Incline-Press.gif'
+          ] }
+        },
+        { title: 'Lat pulldown — 3×10–12', meta: 'Neutral grip if possible.',
+          media: { type: 'slideshow', images: [
+            'https://cdn.prod.website-files.com/66c501d753ae2a8c705375b6/67ed63d4f06195ec57fc37cc_LatPulldown.gif'
+          ] }
+        },
+        { title: 'DB lateral raises — 3×12–15', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://www.strengthlog.com/wp-content/uploads/2020/12/Dumbbell-Lateral-Raise.gif'
+          ] }
+        },
+        { title: 'Cable triceps pressdown — 2×12–15', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://www.strengthlog.com/wp-content/uploads/2020/03/triceps-pushdown-with-straight-handle.gif'
+          ] }
+        },
+        { title: 'DB curls — 2×12–15', meta: '',
+          media: { type: 'slideshow', images: [
+            'https://cdn.shopify.com/s/files/1/0618/9462/3460/files/7hh1.gif?v=1741759210'
+          ] }
+        },
+        { title: 'Zone 2 cardio — 15–20 min', meta: 'Incline walk / bike; conversational pace.',
+          media: { type: 'slideshow', images: [
+            'https://barbend.com/wp-content/uploads/2024/02/treadmill-run-sprint-barbend-movement-gif-masters.gif'
+          ] }
+        }
+      ];
+      createViewer({ dayTitle: 'Day 1 — Upper A + Zone 2', moves, containerId: 'app' });
+    </script>
+  </body>
+  </html>
