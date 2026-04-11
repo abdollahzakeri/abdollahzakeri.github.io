@@ -42,10 +42,90 @@
     <!-- PWA / Theming (optional but nice) -->
     <meta name="theme-color" content="#0f172a">
 
-    <script
-      src="https://aiberry.ai/widget.js"
-      data-bot-id="71u0bar1"
-    ></script>
+    <!-- AIBerry Chat Widget -->
+    <style>
+      #aiberry-widget {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 2147483647;
+        font-family: inherit;
+      }
+      #aiberry-bubble {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(99,102,241,0.4);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        position: relative;
+      }
+      #aiberry-bubble:hover {
+        transform: scale(1.08);
+        box-shadow: 0 6px 24px rgba(99,102,241,0.5);
+      }
+      #aiberry-bubble svg {
+        width: 28px;
+        height: 28px;
+        fill: white;
+        transition: opacity 0.2s ease;
+      }
+      #aiberry-bubble .icon-close { position: absolute; }
+      #aiberry-chat {
+        position: fixed;
+        bottom: 96px;
+        right: 24px;
+        width: 400px;
+        height: 600px;
+        max-width: calc(100vw - 32px);
+        max-height: calc(100vh - 120px);
+        border: none;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        opacity: 1;
+        transform: translateY(0);
+      }
+      #aiberry-chat.hidden {
+        opacity: 0;
+        transform: translateY(16px);
+        pointer-events: none;
+      }
+      #aiberry-chat iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      @media (max-width: 480px) {
+        #aiberry-chat {
+          width: calc(100vw - 16px);
+          height: calc(100vh - 100px);
+          bottom: 88px;
+          right: 8px;
+          max-width: none;
+          max-height: none;
+          border-radius: 12px;
+        }
+        #aiberry-widget {
+          bottom: 16px;
+          right: 16px;
+        }
+        #aiberry-bubble {
+          width: 52px;
+          height: 52px;
+        }
+        #aiberry-bubble svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    </style>
 
     <!-- JSON-LD: Person -->
     <script type="application/ld+json">
@@ -615,5 +695,39 @@
         </tr>
       </tbody>
     </table>
+    <!-- AIBerry Chat Widget -->
+    <div id="aiberry-widget">
+      <div id="aiberry-chat">
+        <iframe src="https://aiberry.ai/chat/71u0bar1" title="AI Assistant"></iframe>
+      </div>
+      <button id="aiberry-bubble" aria-label="Toggle chat assistant">
+        <!-- Chat icon -->
+        <svg class="icon-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/></svg>
+        <!-- Close icon -->
+        <svg class="icon-close" style="opacity:0" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+    <script>
+      (function() {
+        var bubble = document.getElementById('aiberry-bubble');
+        var chat = document.getElementById('aiberry-chat');
+        var iconChat = bubble.querySelector('.icon-chat');
+        var iconClose = bubble.querySelector('.icon-close');
+        var open = true; // starts open
+
+        function toggle() {
+          open = !open;
+          chat.classList.toggle('hidden', !open);
+          iconChat.style.opacity = open ? '0' : '1';
+          iconClose.style.opacity = open ? '1' : '0';
+        }
+
+        bubble.addEventListener('click', toggle);
+
+        // Set initial state: chat open, close icon showing
+        iconChat.style.opacity = '0';
+        iconClose.style.opacity = '1';
+      })();
+    </script>
   </body>
 </html>
