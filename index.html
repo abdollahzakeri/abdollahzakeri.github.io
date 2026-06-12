@@ -47,6 +47,21 @@
       src="https://aiberry.ai/widget.js"
       data-bot-id="71u0bar1"
     ></script>
+    <!-- Auto-open the AIBerry chat panel on page load -->
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        var tries = 0;
+        var timer = setInterval(function () {
+          var btn = document.getElementById('aiberry-widget-btn');
+          if (btn) {
+            btn.click();
+            clearInterval(timer);
+          } else if (++tries > 20) {
+            clearInterval(timer);
+          }
+        }, 100);
+      });
+    </script>
 
     <!-- JSON-LD: Person -->
     <script type="application/ld+json">
